@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Marché en ligne</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #129254;
+                background-image: url('Enceinte Bluetooth'); /* Remplacez par le chemin de votre image */
+                background-size: cover; /* Permet à l'image de couvrir toute la surface de l'écran */
+                background-position: center; /* Centre l'image */
+                background-repeat: no-repeat; /* Empêche la répétition de l'image */
+            }
+    
+            header {
+                background-color: #15bb29;
+                color: white;
+                padding: 10px 0;
+                text-align: center;
+            }
+    
+            header nav ul {
+                list-style-type: none;
+                padding: 0;
+            }
+    
+            header nav ul li {
+                display: inline;
+                margin: 0 15px;
+            }
+    
+            header nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
+    
+            main {
+                padding: 20px;
+            }
+    
+            .produits {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+    
+            .produit { 
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre plus subtile */
+    border-radius: 8px; /* Bords arrondis */
+    width: 200px; /* Augmenter la largeur pour plus d'espace */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation au survol */
+}
+
+.produit:hover {
+    transform: translateY(-5px); /* Léger effet de déplacement vers le haut */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.produit img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px; /* Bords arrondis pour l'image */
+}
+
+button {
+    background-color: #28a745; /* Vert plus vif */
+    color: white;
+    border: none; /* Suppression de la bordure */
+    padding: 12px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 6px; /* Bords arrondis pour le bouton */
+    font-size: 16px; /* Taille de police plus lisible */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation au survol */
+}
+
+button:hover {
+    background-color: #218838; /* Changement de couleur au survol */
+    transform: scale(1.05); /* Légère agrandissement au survol */
+}
+
+button:active {
+    transform: scale(1); /* Réduction de l'agrandissement au clic */
+}
+
+    
+            button:hover {
+                background-color: #dee9e0;
+            }
+    
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            form input, form textarea, form button {
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #e0caca;
+                border-radius: 4px;
+            }
+    
+            footer {
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 10px 0;
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+            }
+        </style>
+    </head>
+    
+<body>
+    
+    
+    <header>
+        <h1>Bienvenue sur le Marché en ligne</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" onclick="showPage('accueil')">Accueil</a></li>
+                <li><a href="connexion.html" onclick="showPage('sign-up')">S'inscrire</a></li>
+                <li><a href="connexion.html" onclick="showPage('product-list')">Produits</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+       <!-- Page d'accueil -->
+<section id="accueil" class="page">
+    <h2>Explorez les meilleurs produits des vendeurs !</h2>
+
+    <!-- Liste des produits par défaut -->
+    <div class="produits">
+        <div class="produit">
+            <img src="/Images/Camon.jpg" alt="Produit 1">
+            <h4> Smartphone</h4>
+            <p>Un smartphone dernier cri avec une caméra haute définition, un grand écran et une batterie longue durée. Parfait pour les utilisateurs modernes.</p>
+            <p>55000F CFA</p>
+            <a href="connexion.html">
+    <button>ACHETER</button>
+</a>
+
+        </div>
+      
+        <div class="produit">
+            <img src="/Images/Casque audio.jpg" alt="Produit 2">
+            <h4>Casque Audio</h4>
+            <p>Casque audio sans fil avec suppression active du bruit, idéal pour écouter de la musique sans distractions. Très confortable pour les longues sessions d'écoute.</p>
+            <p>5000F CFA</p>
+            <a href="connexion.html">
+    <button>ACHETER</button>
+</a>
+
+        </div>
+        <div class="produit">
+            <img src="/Images/Montre connectée.jpg" alt="Produit 3">
+            <h4> Montre Connectée</h4>
+            <p>Suivi d'activité, notifications, et plus encore avec cette montre connectée élégante. Gardez une trace de votre santé et de vos notifications en temps réel.</p>
+            <p>9000F CFA</p>
+            <a href="connexion.html">
+    <button>ACHETER</button>
+</a>
+
+        </div>
+        <div class="produit">
+            <img src="/Images/Sac a dos.jpg" alt="Produit 4">
+            <h4> Sac à Dos</h4>
+            <p>Sac à dos tendance avec plusieurs compartiments, idéal pour transporter vos affaires en toute sécurité et confort. Conçu pour les professionnels et les étudiants.</p>
+            <p>11000F CFA</p>
+            <a href="connexion.html">
+    <button>ACHETER</button>
+</a>
+
+        </div>
+        <div class="produit">
+            <img src="/Images/Enceinte Bluetooth.jpg" alt="Produit 5">
+            <h4>Enceinte Bluetooth</h4>
+            <p>Enceinte portable avec un son puissant et une longue autonomie, parfaite pour les fêtes ou les déplacements.</p>
+            <p>8000F CFA</p>
+            <a href="connexion.html">
+    <button>ACHETER</button>
+</a>
+
+        </div>
+        <div class="produit">
+            <img src="/Images/Lunettes de Soleil.jpg" alt="Produit 6">
+            <h4>Lunettes de Soleil</h4>
+            <p>Protégez vos yeux avec style grâce à ces lunettes de soleil élégantes et modernes.</p>
+            <p>3000F CFA</p>
+            <a href="connexion.html">
+    <button>ACHETER</button>
+</a>
+
+        </div>
+        <div class="produit">
+            <img src="/Images/Clavier Mécanique.jpg" alt="Produit 7">
+            <h4>Clavier Mécanique</h4>
+            <p>Clavier mécanique rétroéclairé, idéal pour les gamers et les professionnels.</p>
+            <p>15000F CFA</p>
+            <a href="connexion.html">
+    <button>ACHETER</button>
+</a>
+
+        </div>
+        <div class="produit">
+            <img src="/Images/Chaise Ergonomique.jpg" alt="Produit 8">
+            <h4>Chaise Ergonomique</h4>
+            <p>Chaise confortable et ergonomique, idéale pour le travail de bureau ou les longues sessions de gaming.</p>
+            <p>25000F CFA</p>
+            <a href="connexion.html">
+    <button>ACHETER</button>
+</a>
+
+        </div>
+        </div>
+        
+        <button onclick="becomeSeller()">Devenir Vendeur</button> 
+</div>
+</section>
+<div class="description">
+    <h2>À propos de notre plateforme</h2>
+    <p>E-Shop est une plateforme de commerce en ligne innovante qui permet aux vendeurs de publier facilement leurs produits et de se connecter directement avec des acheteurs potentiels. Notre site est conçu pour faciliter les échanges commerciaux en offrant un espace sécurisé et convivial où chaque utilisateur peut naviguer aisément. Les vendeurs peuvent promouvoir leurs articles tout en bénéficiant d'une visibilité maximale auprès d'un large public. Pour les acheteurs, notre moteur de recherche avancé et nos catégories bien définies permettent de trouver rapidement ce qu'ils recherchent. Avec des outils de communication intégrés, les utilisateurs peuvent poser des questions et obtenir des réponses avant l'achat, garantissant ainsi des transactions transparentes et sécurisées.</p>
+</div>   
+    <!-- Page d'inscription -->
+        <section id="sign-up" class="page" style="display:none;">
+            <h2>Inscrivez-vous en tant que vendeur</h2>
+            <form action="submit-signup.php" method="POST" onsubmit="handleSignUp(event)">
+                <label for="nom">Nom du Vendeur</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="motdepasse">Mot de passe</label>
+                <input type="password" id="motdepasse" name="motdepasse" required>
+
+                <button type="submit">S'inscrire</button>
+            </form>
+        </section>
+
+        <!-- Page d'ajout de produit -->
+        <section id="product-add" class="page" style="display:none;">
+            <h2>Ajouter un produit</h2>
+            <form action="submit-product.php" method="POST" enctype="multipart/form-data" onsubmit="handleProductAdd(event)">
+                <label for="nom-produit">Nom du produit</label>
+                <input type="text" id="nom-produit" name="nom-produit" required>
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <label for="prix">Prix (€)</label>
+                <input type="number" id="prix" name="prix" required>
+
+                <label for="image">Image du produit</label>
+                <input type="file" id="image" name="image" required>
+
+                <button type="submit">Ajouter le produit</button>
+            </form>
+        </section>
+ 
+
+        <!-- Liste des produits -->
+        <section id="product-list" class="page" style="display:none;">
+            <h2>Liste des Produits</h2>
+            <div class="produits" id="products-container">
+                <!-- Les produits ajoutés seront affichés ici -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Marché en ligne</p>
+    </footer>
+
+    <script>
+        let produits = []; // Stocke les produits ajoutés
+        let isLoggedIn = false; // Simule l'état de connexion de l'utilisateur (false par défaut)
+    
+        // Afficher la page correspondante
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(page).style.display = 'block';
+        }
+        <script>
+    function becomeSeller() {
+        alert('Vous êtes maintenant un vendeur ! Vous pouvez commencer à publier vos produits.');
+        // Logique pour permettre à l'utilisateur de commencer à publier des produits
+        // Vous pourriez ici rediriger l'utilisateur vers la page de publication des produits.
+    }
+</script>
+        // Simuler l'inscription d'un vendeur
+        function handleSignUp(event) {
+            event.preventDefault();
+            alert("Vendeur inscrit avec succès !");
+            isLoggedIn = true; // Simule une connexion réussie
+            showPage('accueil');
+        }
+    
+        // Ajouter un produit à la liste
+        function handleProductAdd(event) {
+            event.preventDefault();
+            const nomProduit = document.getElementById('nom-produit').value;
+            const description = document.getElementById('description').value;
+            const prix = document.getElementById('prix').value;
+            const image = document.getElementById('image').files[0];
+    
+            if (image) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    produits.push({ nomProduit, description, prix, imageSrc: e.target.result });
+                    displayProducts();
+                    alert("Produit ajouté avec succès !");
+                    showPage('product-list');
+                };
+                reader.readAsDataURL(image);
+            }
+        }
+    
+        // Afficher la liste des produits
+        function displayProducts() {
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+            produits.forEach((product, index) => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('produit');
+                productElement.innerHTML = `
+                    <img src="${product.imageSrc}" alt="${product.nomProduit}">
+                    <h3>${product.nomProduit}</h3>
+                    <p>${product.description}</p>
+                    <p>Prix: ${product.prix}€</p>
+                    <button onclick="addToCart(${index})">ACHETER</button>
+                `;
+                container.appendChild(productElement);
+            });
+        }
+    
+        // Ajouter un produit au panier (avec redirection si non connecté)
+        function addToCart(index) {
+            if (!isLoggedIn) {
+                const redirect = confirm("Vous devez être connecté pour passer une commande. Voulez-vous vous connecter ou créer un compte ?");
+                if (redirect) {
+                    showPage('sign-up'); // Redirige vers la page d'inscription
+                }
+            } else {
+                alert(`Produit ajouté au panier: ${produits[index].nomProduit}`);
+            }
+        }
+    </script>
+    
+</body>
+</html>

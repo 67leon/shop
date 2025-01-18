@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription et Connexion - E-Shop</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #67e254, #75c890);
+            color: #333;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+            transition: transform 0.3s ease-in-out;
+        }
+        .box:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #f7f7f7;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+            border-color: #32cd32;
+            outline: none;
+            background-color: #fff;
+        }
+        button {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #32cd32;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #28a745;
+        }
+        .links {
+            margin-top: 15px;
+        }
+        .links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .inscription {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Formulaire de Connexion -->
+        <div class="box" id="connexionBox">
+            <h1>Connexion</h1>
+            <form id="loginForm">
+                <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+                <button type="submit">Se Connecter</button>
+            </form>
+            <div class="links">
+                <a href="#" id="createAccountLink">Créer un compte</a> | <a href="#">Mot de passe oublié ?</a>
+            </div>
+        </div>
+
+        <!-- Formulaire d'Inscription (masqué au début) -->
+        <div class="box inscription" id="inscriptionBox">
+            <h1>Inscription</h1>
+            <form id="registerForm">
+                <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+                <input type="email" name="email" placeholder="Adresse e-mail" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+                <button type="submit">Créer un compte</button>
+            </form>
+            <div class="links">
+                <a href="#" id="backToLoginLink">Retour à la connexion</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxpDO8xjqr9jbx8jBDgoOzUD16GbOGIWXtXcv0EUJ7oOTPJgT7ujDqeCh6qmITUUUcr/exec';
+
+        // Gestion du changement entre les formulaires
+        document.getElementById('createAccountLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('connexionBox').style.display = 'none';
+            document.getElementById('inscriptionBox').style.display = 'block';
+        });
+
+        document.getElementById('backToLoginLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('inscriptionBox').style.display = 'none';
+            document.getElementById('connexionBox').style.display = 'block';
+        });
+
+        // Gestion de l'inscription
+        document.getElementById('registerForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            data.action = 'register';
+
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                alert(result.message || 'Inscription réussie');
+            } catch (error) {
+                console.error('Erreur de requête :', error);
+                alert('Une erreur est survenue. Veuillez vérifier la console pour plus d\'informations.');
+            }
+        });
+
+        // Gestion de la connexion
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            data.action = 'login';
+
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                alert(result.message || 'Connexion réussie');
+            } catch (error) {
+                console.error('Erreur de requête :', error);
+                alert('Une erreur est survenue. Veuillez vérifier la console pour plus d\'informations.');
+            }
+        });
+    </script>
+</body>
+</html>
